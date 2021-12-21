@@ -6,6 +6,9 @@ body {
   background-color: ${({ theme }) => theme.colors.background};
 }
 
+/* section {
+  outline: 1px solid green;
+} */
 
 h1,
 h2,
@@ -24,6 +27,7 @@ li {
 
 ul {
   padding-left: 0;
+  list-style: none;
 }
 
 img,

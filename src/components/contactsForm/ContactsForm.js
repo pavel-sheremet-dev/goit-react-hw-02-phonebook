@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
+import { Form } from './ContactsForm.styled';
+import { ButtonStyled } from '../Button/Buttonstyled';
+import { InputName, Label, InputField } from '../input/Input.styled';
 
 export default class ContactsForm extends Component {
   state = {
@@ -32,9 +35,10 @@ export default class ContactsForm extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          <input
+      <Form onSubmit={this.handleSubmit}>
+        <Label>
+          <InputName>Name:</InputName>
+          <InputField
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -43,9 +47,12 @@ export default class ContactsForm extends Component {
             onChange={this.handleChange}
             value={name}
             placeholder="Enter contact name"
+            autoComplete="off"
           />
-
-          <input
+        </Label>
+        <Label>
+          <InputName>Phone number:</InputName>
+          <InputField
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -53,10 +60,12 @@ export default class ContactsForm extends Component {
             required
             onChange={this.handleChange}
             value={number}
+            placeholder="Enter phone number"
+            autoComplete="off"
           />
-        </label>
-        <button type="submit">Add contact</button>
-      </form>
+        </Label>
+        <ButtonStyled type="submit">Add contact</ButtonStyled>
+      </Form>
     );
   }
 }

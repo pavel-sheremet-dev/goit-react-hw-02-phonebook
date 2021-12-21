@@ -7,6 +7,8 @@ export const ThemeBtn = styled.button`
   align-items: center;
   border-radius: 10px;
   border: 1px solid ${({ theme }) => theme.colors.fontColor};
+  background-color: transparent;
+  cursor: pointer;
 `;
 
 export const ThemeIcon = styled.svg`
@@ -14,5 +16,4 @@ export const ThemeIcon = styled.svg`
   height: 30px;
   transform: rotate(0.12turn);
   fill: ${({ theme }) => theme.colors.fontColor};
-  transition: fill 250ms linear;
 `;
