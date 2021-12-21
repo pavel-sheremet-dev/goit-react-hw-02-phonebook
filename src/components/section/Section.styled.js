@@ -1,23 +1,10 @@
 import styled from 'styled-components';
 
-export const SectionStyled = styled.section`
-  padding-top: ${({ hLevel }) => {
-    if (hLevel === 'h1') {
-      return '10px';
-    }
-    if (hLevel === 'h2') {
-      return '10px';
-    }
-  }};
-  padding-bottom: ${({ hLevel }) => {
-    if (hLevel === 'h1') {
-      return '20px';
-    }
-    if (hLevel === 'h2') {
-      return '20px';
-    }
-  }};
-  @media screen and (min-width: 768px) {
+export const SectionStyled = styled.div`
+  padding-top: 10px;
+  padding-bottom: 20px;
+
+  /* @media screen and (min-width: 768px) {
     &:not(:last-child) {
       margin-right: 50px;
     }
@@ -26,7 +13,7 @@ export const SectionStyled = styled.section`
     &:not(:last-child) {
       margin-right: 200px;
     }
-  }
+  } */
 `;
 
 export const SectionTitle = styled.h1`

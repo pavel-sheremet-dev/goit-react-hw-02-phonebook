@@ -12,6 +12,7 @@ export const StyledContainer = styled.div`
   @media screen and (min-width: 768px) {
     width: 660px;
     display: flex;
+    justify-content: space-around;
   }
   @media screen and (min-width: 1024px) {
     width: 920px;

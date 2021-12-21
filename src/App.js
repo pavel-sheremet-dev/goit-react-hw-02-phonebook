@@ -80,31 +80,33 @@ export default class App extends Component {
             </HeaderContainer>
           </Header>
           <main>
-            <Container>
-              <Section
-                title="Simple phonebook"
-                hLevel="h1"
-                visuallyHidden={false}
-              >
-                <ContactsForm addContact={this.addContact} />
-              </Section>
-              <Section title="Your Contacts" hLevel="h2">
-                {contacts.length ? (
-                  <>
-                    <Filter
-                      filterText={filter}
-                      onChange={this.onFilterChange}
-                    />
-                    <ContactsList
-                      contacts={filteredContacts}
-                      removeContact={this.removeContact}
-                    />
-                  </>
-                ) : (
-                  <EmptyContactsNotify />
-                )}
-              </Section>
-            </Container>
+            <section>
+              <Container>
+                <Section
+                  title="Simple phonebook"
+                  hLevel="h1"
+                  visuallyHidden={false}
+                >
+                  <ContactsForm addContact={this.addContact} />
+                </Section>
+                <Section title="Your Contacts" hLevel="h2">
+                  {contacts.length ? (
+                    <>
+                      <Filter
+                        filterText={filter}
+                        onChange={this.onFilterChange}
+                      />
+                      <ContactsList
+                        contacts={filteredContacts}
+                        removeContact={this.removeContact}
+                      />
+                    </>
+                  ) : (
+                    <EmptyContactsNotify />
+                  )}
+                </Section>
+              </Container>
+            </section>
           </main>
         </ThemeProvider>
       </>
