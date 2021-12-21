@@ -4,7 +4,6 @@ import { ThemeProvider } from 'styled-components';
 import themes from './styles/themes/index';
 import ThemeSwitcher from './components/themeSwitcher/ThemeSwitcher';
 import ContactsForm from './components/contactsForm/ContactsForm';
-// import shortid from 'shortid';
 import ContactsList from './components/contactsList/ContactsList';
 import EmptyContactsNotify from './components/notify/EmptyContactsNotify';
 import Filter from './components/filter/Filter';

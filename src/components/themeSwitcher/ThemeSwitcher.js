@@ -1,4 +1,5 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+
 import sprite from '../../images/sprite.svg';
 import { ThemeBtn, ThemeIcon } from './ThemeSwitcher.styled';
 
@@ -14,6 +15,11 @@ const ThemeSwitcher = ({ onBtnClick, currentTheme }) => {
       </ThemeIcon>
     </ThemeBtn>
   );
+};
+
+ThemeSwitcher.propTypes = {
+  currentTheme: PropTypes.string.isRequired,
+  onBtnClick: PropTypes.func.isRequired,
 };
 
 export default ThemeSwitcher;
