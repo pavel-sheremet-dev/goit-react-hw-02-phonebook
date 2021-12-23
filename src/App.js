@@ -12,6 +12,7 @@ import { HeaderContainer } from './components/container/StyledContainer';
 import Section from './components/section/Section';
 import Logo from './components/logo/Logo';
 import Container from './components/container/Container';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default class App extends Component {
   state = {
@@ -32,8 +33,13 @@ export default class App extends Component {
   };
 
   addContact = contact => {
-    if (this.state.contacts.some(item => item.name === contact.name)) {
-      alert(`${contact.name} is already in contacts`);
+    const normalizeName = this.textNormalize(contact.name);
+    if (
+      this.state.contacts.some(
+        item => item.name.toLowerCase() === normalizeName,
+      )
+    ) {
+      toast(`${contact.name} is already in your contacts`);
       return;
     }
     this.setState(({ contacts }) => ({
@@ -52,8 +58,12 @@ export default class App extends Component {
     this.setState({ filter: e.target.value });
   };
 
+  textNormalize = text => {
+    return text.toLowerCase();
+  };
+
   getFilteredContacts = (contacts, filter) => {
-    const normalizedFilter = filter.toLowerCase();
+    const normalizedFilter = this.textNormalize(filter);
     return contacts.filter(({ name }) =>
       name.toLowerCase().includes(normalizedFilter),
     );
@@ -108,6 +118,17 @@ export default class App extends Component {
               </Container>
             </section>
           </main>
+          <div>
+            <Toaster
+              toastOptions={{
+                style: {
+                  borderRadius: '10px',
+                  background: '#236d44',
+                  color: '#fff',
+                },
+              }}
+            />
+          </div>
         </ThemeProvider>
       </>
     );
